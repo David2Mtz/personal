@@ -43,6 +43,9 @@ header{
     cursor: pointer;
     transition: 0.5s ease;
 }
+.justificar{
+    text-align: justify;
+}
 
 .logo:hover{
     transform: scale(1.1);
@@ -65,38 +68,6 @@ nav a.active{
     border-bottom: 3px solid #b74b4b;
 }
 
-@media(max-width:995px){
-    nav{
-        position: absolute;
-        display: none;
-        top: 0;
-        right: 0;
-        width: 40%;
-        border-left: 3px solid #b74b4b;
-        border-bottom: 3px solid #b74b4b;
-        border-bottom-left-radius: 2rem;
-        padding: 1rem solid;
-        background-color: #161616;
-        border-top: 0.1rem solid rgba(0,0,0,0.1);
-    }
-
-    nav.active{
-        display: block;
-    }
-
-    nav a{
-        display: block;
-        font-size: 2rem;
-        margin: 3rem 0;
-    }
-
-    nav a:hover,
-    nav a.active{
-        padding: 1rem;
-        border-radius: 0.5rem;
-        border-bottom: 0.5rem solid #b74b4b;
-    }
-}
 
 section{
     min-height: 100vh;
@@ -305,7 +276,7 @@ span{
 }
 
 .slider-frame {
-    max-width: 100rem;
+    width: 130rem;
     height: auto;
     margin:50px auto 0;
     overflow: hidden;
@@ -360,4 +331,43 @@ span{
     margin: 0 auto; /* Centra la imagen si hay espacio extra */
     margin-bottom: 4rem;
 
+}
+.img-logo{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+.img-logo img{
+    object-fit: contain;
+    width: 100%;
+    height: 20rem;
+}
+
+.estudios{
+    display: flex;
+    flex-direction: row;
+    column-gap: 4rem;
+}
+
+.escuela{
+    width: 50%;
+    border-radius: 2rem;
+    padding: 2rem;
+    background-color: #fff;
+    border: 0.2rem solid #fff;
+    font-size: 2rem;
+    transition: 0.3s ease;
+    color: #000;
+}
+.escuela:hover{
+    color: black;
+    transform: scale(1.1) translateY(-5px);
+    background-color: #fff;
+    color: #000;
+    box-shadow: 0  0 25px #b74b4b;
+}
+
+.descripcion{
+    justify-content: flex-end;
 }
