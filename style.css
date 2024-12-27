@@ -1,5 +1,12 @@
 @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600&display=swap');
 
+/* depuracion
+div
+{
+    border: 1px solid red;
+}
+*/
+
 *{
     margin: 0;
     padding: 0;
@@ -44,7 +51,9 @@ header{
     transition: 0.5s ease;
 }
 .justificar{
-    text-align: justify;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
 .logo:hover{
@@ -54,6 +63,7 @@ header{
     width: 90%;
 }
 nav a{
+    text-decoration: none;
     font-size: 1.8rem;
     color: white;
     margin-left: 4rem;
@@ -201,20 +211,14 @@ span{
 }
 
 @keyframes words{
-    0%, 20%{
+    0%, 33%{
         content: "Desarrollador";
     }
-    21%, 40%{
+    34%, 66%{
         content: "Diseñador";
     }
-    41%, 60%{
-        content: "Músico";
-    }
-    61%, 80%{
+    67%, 100%{
         content: "Filmmaker";
-    }
-    81%, 100%{
-        content: "Fotógrafo";
     }
 }
 
@@ -276,7 +280,8 @@ span{
 }
 
 .slider-frame {
-    width: 130rem;
+    width: 100%;
+    border-radius: 2rem;
     height: auto;
     margin:50px auto 0;
     overflow: hidden;
@@ -313,25 +318,6 @@ span{
 .textos{
     text-align: justify;
 }
-.infoCripto{
-    display: flex;
-    flex-direction: column;
-    column-gap: 4rem;
-}
-.fotoCripto{
-    width: 80rem;
-    height: auto;
-}
-
-.fotoCripto {
-    width: 100%; /* Hace que la imagen ocupe todo el ancho del contenedor */
-    max-width: 80rem; /* Establece un ancho máximo para la imagen */
-    height: auto; /* Mantiene la proporción de la imagen */
-    display: block; /* Evita el espacio extra debajo de la imagen */
-    margin: 0 auto; /* Centra la imagen si hay espacio extra */
-    margin-bottom: 4rem;
-
-}
 .img-logo{
     display: flex;
     flex-direction: column;
@@ -351,14 +337,16 @@ span{
 }
 
 .escuela{
-    width: 50%;
+    width: 100%;
+    height: 64%;
     border-radius: 2rem;
-    padding: 2rem;
-    background-color: #fff;
+    padding: 3rem;
+    margin: 1rem;
     border: 0.2rem solid #fff;
     font-size: 2rem;
     transition: 0.3s ease;
-    color: #000;
+    color: #fff;
+    overflow-y: hidden;
 }
 .escuela:hover{
     color: black;
@@ -366,8 +354,18 @@ span{
     background-color: #fff;
     color: #000;
     box-shadow: 0  0 25px #b74b4b;
+    height: 100%;
 }
 
-.descripcion{
-    justify-content: flex-end;
+.infoescuela {
+    transition: opacity 0.3s ease-in-out, visibility 0.3s ease-in-out;
+}
+
+.escuela:hover .infoescuela {
+    opacity: 1;
+    visibility: visible;
+}
+
+.escuela:hover .infoescuela {
+    display: block !important; /* Muestra la información al hacer hover */
 }
