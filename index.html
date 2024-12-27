@@ -31,7 +31,9 @@
             <h3 class="typing-text">Soy <span></span></h3>
             <p style="text-align: justify">Un apasionado por aprender cosas nuevas, comprometido a adaptarme a todo tipo de entornos y aportar siempre lo mejor de mi. Aquí comparto mis trabajos y proyectos sobre programación con el objetivo de inspirar y colaborar en el desarrollo de nuevos proyectos.</p>
             <h3>¡Gracias por visitarme!</h3>
+            <p id="email-feedback"></p>
             <div class="social-icons">
+                <a href="#" title="ld.martinez.117@gmail.com" id="copy-email"><i class="fa-solid fa-envelopes-bulk"></i></a>
                 <a href="https://www.linkedin.com/in/luis-david-mart%C3%ADnez-mart%C3%ADnez-29ba30305/"><i class="fa-brands fa-linkedin"></i></a>
                 <a href="https://github.com/David2Mtz"><i class="fa-brands fa-github"></i></a>
                 <a href="https://www.instagram.com/luisdavidmtzx"><i class="fa-brands fa-instagram"></i></a>
@@ -82,6 +84,15 @@
 
     <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
     <script>
+        document.getElementById("copy-email").onclick = function() {
+            const email = "ld.martinez.117@gmail.com";
+            navigator.clipboard.writeText(email).then(function() {
+                document.getElementById("email-feedback").innerHTML = "Correo copiado al portapapeles!<br> <span>ld.martinez.117@gmail.com</span>";
+            }).catch(function() {
+                document.getElementById("email-feedback").innerHTML = "No se pudo copiar el correo.";
+            });
+        }
+        
         document.querySelector('a[href="#proyectos"]').addEventListener('click', function (e) {
             e.preventDefault(); // Evitar el comportamiento predeterminado
             document.querySelector('#proyectos').scrollIntoView({
