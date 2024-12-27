@@ -13,6 +13,7 @@
     <header>
         <a href="index.html" class="logo">David</a>
         <nav>
+            <a href="index.html#proyectos" class="link">Proyectos</a>
             <a href="formacion.html" class="link">Formación</a>
             <a href="sobremi.html" class="link">Sobre mi</a>
         </nav>
@@ -46,5 +47,13 @@
             </div>
         </div>
     </section>
+    <script>
+        document.querySelector('a[href="#proyectos"]').addEventListener('click', function (e) {
+            e.preventDefault(); // Evitar el comportamiento predeterminado
+            document.querySelector('#proyectos').scrollIntoView({
+                behavior: 'smooth'
+            });
+        });
+    </script>
 </body>
 </html>

@@ -1,11 +1,10 @@
 @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600&display=swap');
-
-/* depuracion
+/*
 div
 {
     border: 1px solid red;
 }
-*/
+    */
 
 *{
     margin: 0;
@@ -18,6 +17,8 @@ div
 }
 html{
     font-size: 62.5%;
+    scroll-behavior: smooth;
+
 }
 
 body{
@@ -368,4 +369,42 @@ span{
 
 .escuela:hover .infoescuela {
     display: block !important; /* Muestra la información al hacer hover */
+}
+
+
+.proyectos h1{
+    font-size: 4rem;
+}
+
+.proyectos h2{
+    font-size: 2.6rem;
+    color:#b74b4b;
+}
+.proyectos p{
+    font-size: 1.9rem;
+    text-align: justify;
+}
+.swiper-slide img{
+    width: 100%;
+    height: 50rem;
+    object-fit: contain;
+}
+
+.swiper-button-next, .swiper-button-prev {
+    color: #b74b4b !important;
+    border-radius: 50%;
+    transition: all 0.3s ease;
+}
+
+.swiper-button-next:hover, .swiper-button-prev:hover {
+    color: #fff !important;
+}
+
+/* Paginación */
+.swiper-pagination-bullet {
+    background-color: #b74b4b !important;
+}
+
+.swiper-pagination-bullet-active {
+    background-color: #ec4b4b !important;
 }
