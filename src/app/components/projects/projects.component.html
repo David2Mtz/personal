@@ -1,0 +1,42 @@
+<section class="proyectos" id="proyectos">
+  <h1 class="mb-5">Proyectos personales</h1>
+
+  <div class="row w-100 gy-5">
+    @for (proyecto of projects; track proyecto.id) {
+      <div class="proyecto col-12">
+        <h2>{{ proyecto.title }}</h2>
+        <p>{{ proyecto.description }}</p>
+
+        @if (proyecto.link) {
+          <a 
+            class="btn" 
+            [href]="proyecto.link" 
+            target="_blank" 
+            rel="noopener noreferrer">
+            {{ proyecto.linkText || 'Conocer' }}
+          </a>
+        }
+
+        <div class="row mt-5">
+          <!-- Slider main container -->
+          <div class="swiper" #swiperContainer>
+            <!-- Additional required wrapper -->
+            <div class="swiper-wrapper">
+              <!-- Slides -->
+              @for (img of proyecto.images; track img) {
+                <div class="swiper-slide">
+                  <img [src]="img" [alt]="proyecto.title">
+                </div>
+              }
+            </div>
+            <!-- Pagination -->
+            <div class="swiper-pagination"></div>
+            <!-- Navigation buttons -->
+            <div class="swiper-button-prev"></div>
+            <div class="swiper-button-next"></div>
+          </div>
+        </div>
+      </div>
+    }
+  </div>
+</section>

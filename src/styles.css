@@ -1,0 +1,144 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600;700;800&display=swap');
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  text-decoration: none;
+  border: none;
+  outline: none;
+  font-family: 'Poppins', sans-serif;
+}
+
+html {
+  font-size: 62.5%; /* 1rem = 10px */
+  scroll-behavior: smooth;
+}
+
+body {
+  width: 100%;
+  min-height: 100vh;
+  overflow-x: hidden;
+  background-color: #000000;
+  color: #ffffff;
+}
+
+span.accent,
+span {
+  color: #b74b4b;
+}
+
+section {
+  min-height: 100vh;
+  padding: 10rem 9% 6rem;
+}
+
+.justificar {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.textos {
+  text-align: justify;
+}
+
+.w-90 {
+  width: 90%;
+}
+
+/* Common Buttons */
+.btn-custom,
+.btn {
+  display: inline-block;
+  padding: 1rem 2.8rem;
+  background-color: black;
+  border-radius: 4rem;
+  font-size: 1.6rem;
+  color: #b74b4b;
+  letter-spacing: 0.3rem;
+  font-weight: 600;
+  border: 2px solid #b74b4b;
+  transition: 0.3s ease;
+  cursor: pointer;
+  text-decoration: none;
+}
+
+.btn-custom:hover,
+.btn:hover {
+  transform: scale3d(1.03, 1.03, 1.03);
+  background-color: #b74b4b;
+  color: black;
+  box-shadow: 0 0 25px #b74b4b;
+}
+
+/* Swiper Controls Custom Styling */
+.swiper-button-next,
+.swiper-button-prev {
+  color: #b74b4b !important;
+  border-radius: 50%;
+  transition: all 0.3s ease;
+}
+
+.swiper-button-next:hover,
+.swiper-button-prev:hover {
+  color: #ffffff !important;
+}
+
+.swiper-pagination-bullet {
+  background-color: #b74b4b !important;
+}
+
+.swiper-pagination-bullet-active {
+  background-color: #ec4b4b !important;
+}
+
+/* Image Slider Frame with Keyframes (used for campus & hobbies galleries) */
+.slider-frame {
+  width: 100%;
+  border-radius: 2rem;
+  height: auto;
+  margin: 3rem auto 0;
+  overflow: hidden;
+  margin-bottom: 4rem;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.5);
+}
+
+.slider-frame ul {
+  display: flex;
+  padding: 0;
+  width: 300%;
+  animation: slide 13s infinite alternate ease-in-out;
+}
+
+.slider-frame li {
+  width: 100%;
+  list-style: none;
+}
+
+.slider-frame img {
+  width: 100%;
+  border-radius: 2rem;
+  object-fit: cover;
+}
+
+@keyframes slide {
+  0% {
+    margin-left: 0;
+  }
+  33% {
+    margin-left: 0;
+  }
+  40% {
+    margin-left: -100%;
+  }
+  60% {
+    margin-left: -100%;
+  }
+  70% {
+    margin-left: -200%;
+  }
+  100% {
+    margin-left: -200%;
+  }
+}

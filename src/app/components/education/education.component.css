@@ -1,0 +1,111 @@
+.datos {
+  background-color: black;
+  min-height: 100vh;
+  padding: 10rem 9% 6rem;
+}
+
+.section-title {
+  font-size: 4rem;
+  font-weight: 700;
+  color: #ffffff;
+}
+
+.textos {
+  font-size: 2rem;
+  text-align: justify;
+  line-height: 1.6;
+  color: #e0e0e0;
+}
+
+.img-logo {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 1rem 0;
+}
+
+.img-logo img {
+  object-fit: contain;
+  width: 100%;
+  max-height: 18rem;
+}
+
+.escuela {
+  width: 100%;
+  border-radius: 2rem;
+  padding: 3rem;
+  margin: 0.5rem;
+  border: 0.2rem solid #ffffff;
+  font-size: 2rem;
+  transition: all 0.35s ease;
+  color: #ffffff;
+  background-color: #0c0c0c;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.escuela h2 {
+  font-size: 2.5rem;
+  margin-bottom: 1.5rem;
+  font-weight: 700;
+  color: #b74b4b;
+  transition: color 0.3s ease;
+}
+
+.infoescuela {
+  font-size: 1.8rem;
+  transition: all 0.3s ease;
+}
+
+.infoescuela p {
+  margin-bottom: 0.8rem;
+}
+
+.infoescuela .period {
+  font-weight: 600;
+  color: #b74b4b;
+  transition: color 0.3s ease;
+}
+
+.escuela:hover {
+  transform: scale(1.05) translateY(-6px);
+  background-color: #ffffff;
+  color: #000000;
+  box-shadow: 0 0 30px #b74b4b;
+}
+
+.escuela:hover h2 {
+  color: #000000;
+}
+
+.escuela:hover .infoescuela .period {
+  color: #b74b4b;
+}
+
+@media (max-width: 768px) {
+  .datos {
+    padding: 8rem 5% 4rem;
+  }
+
+  .section-title {
+    font-size: 3.2rem;
+  }
+
+  .textos {
+    font-size: 1.7rem;
+  }
+
+  .escuela {
+    padding: 2rem;
+  }
+
+  .escuela h2 {
+    font-size: 2.2rem;
+  }
+
+  .img-logo img {
+    max-height: 14rem;
+  }
+}

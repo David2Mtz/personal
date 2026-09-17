@@ -1,0 +1,24 @@
+<header [class.scrolled]="isScrolled()">
+  <a href="#inicio" (click)="scrollTo('inicio', $event)" class="logo">
+    {{ personalInfo.name }}
+  </a>
+
+  <button 
+    class="mobile-menu-btn d-md-none" 
+    (click)="toggleMobileMenu()" 
+    aria-label="Abrir menú de navegación">
+    <i class="fa-solid" [class.fa-bars]="!isMobileMenuOpen()" [class.fa-xmark]="isMobileMenuOpen()"></i>
+  </button>
+
+  <nav [class.open]="isMobileMenuOpen()">
+    @for (item of navItems; track item.targetId) {
+      <a 
+        [href]="'#' + item.targetId" 
+        class="link"
+        [class.active]="activeSection() === item.targetId"
+        (click)="scrollTo(item.targetId, $event)">
+        {{ item.label }}
+      </a>
+    }
+  </nav>
+</header>

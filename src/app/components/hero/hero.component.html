@@ -1,0 +1,38 @@
+<section class="home" id="inicio">
+  <div class="home-img">
+    <img [src]="info.avatarUrl" [alt]="'Foto de ' + info.name">
+  </div>
+
+  <div class="home-content">
+    <h1>Hola, soy <span>{{ info.name }}</span></h1>
+    <h3 class="typing-text">
+      Soy <span class="typing-word">{{ displayedText() }}</span><span class="typing-cursor"></span>
+    </h3>
+    <p class="bio-text">{{ info.bio }}</p>
+
+    <h3 class="thank-you">{{ info.thankYouText }}</h3>
+
+    @if (emailFeedback(); as feedback) {
+      <p class="email-feedback" [class.success]="feedback.success">
+        {{ feedback.text }}
+      </p>
+    }
+
+    <div class="social-icons">
+      @for (social of info.socials; track social.name) {
+        <a
+          [href]="social.url"
+          [title]="social.name"
+          [attr.target]="social.url !== '#' ? '_blank' : null"
+          [attr.rel]="social.url !== '#' ? 'noopener noreferrer' : null"
+          (click)="handleSocialClick(social, $event)">
+          <i [class]="social.icon"></i>
+        </a>
+      }
+    </div>
+
+    <div class="descargas">
+      <a [href]="info.cvUrl" download class="btn">Descarga mi CV</a>
+    </div>
+  </div>
+</section>
