@@ -22,7 +22,7 @@ export class NavbarComponent {
     const scrollPosition = window.scrollY;
     this.isScrolled.set(scrollPosition > 50);
 
-    const sections = ['inicio', 'proyectos', 'formacion', 'sobremi'];
+    const sections = ['inicio', 'formacion', 'titulacion', 'tecnologias', 'proyectos', 'sobremi'];
     for (const sectionId of sections) {
       const element = document.getElementById(sectionId);
       if (element) {

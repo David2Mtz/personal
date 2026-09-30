@@ -85,6 +85,32 @@ section {
   color: #ffffff !important;
 }
 
+/* 1. Apagar y ocultar TODO lo que Swiper intente inyectar (su fuente nativa ::after y sus SVGs) */
+.swiper-button-next::after,
+.swiper-button-prev::after,
+.swiper-button-next svg,
+.swiper-button-prev svg {
+  display: none !important;
+  content: none !important;
+}
+
+/* 2. Crear nuestras propias flechas usando ::before para evitar conflictos con el CDN de Swiper */
+.swiper-button-prev::before {
+  content: "\f053" !important; /* fa-chevron-left */
+  font-family: "Font Awesome 6 Free" !important;
+  font-weight: 900 !important;
+  display: block !important;
+  font-size: 1.6rem; /* Puedes ajustar este tamaño globalmente aquí */
+}
+
+.swiper-button-next::before {
+  content: "\f054" !important; /* fa-chevron-right */
+  font-family: "Font Awesome 6 Free" !important;
+  font-weight: 900 !important;
+  display: block !important;
+  font-size: 1.6rem;
+}
+
 .swiper-pagination-bullet {
   background-color: #b74b4b !important;
 }

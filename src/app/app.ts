@@ -3,6 +3,8 @@ import { NavbarComponent } from './components/navbar/navbar.component';
 import { HeroComponent } from './components/hero/hero.component';
 import { ProjectsComponent } from './components/projects/projects.component';
 import { EducationComponent } from './components/education/education.component';
+import { TitulacionComponent } from './components/titulacion/titulacion.component';
+import { TechnologiesComponent } from './components/technologies/technologies.component';
 import { AboutComponent } from './components/about/about.component';
 import { FooterComponent } from './components/footer/footer.component';
 
@@ -12,8 +14,10 @@ import { FooterComponent } from './components/footer/footer.component';
   imports: [
     NavbarComponent,
     HeroComponent,
-    ProjectsComponent,
     EducationComponent,
+    TitulacionComponent,
+    TechnologiesComponent,
+    ProjectsComponent,
     AboutComponent,
     FooterComponent
   ],

@@ -1,0 +1,262 @@
+<section class="titulacion-section" id="titulacion">
+  <!-- Encabezado de la sección -->
+  <div class="section-header">
+    <div class="section-tag">
+      <i class="fa-solid fa-graduation-cap"></i>
+      <span>{{ thesis.tag }}</span>
+    </div>
+    <h1 class="section-title">{{ thesis.title }}</h1>
+    <p class="section-subtitle">{{ thesis.subtitle }}</p>
+
+    @if (thesis.links && thesis.links.length > 0) {
+      <div class="thesis-links mt-4">
+        @for (link of thesis.links; track link.label) {
+          <a
+            [href]="link.url"
+            target="_blank"
+            rel="noopener noreferrer"
+            class="btn"
+            [class.btn-primary-custom]="link.primary">
+            @if (link.icon) {
+              <i [class]="link.icon" class="me-2"></i>
+            }
+            {{ link.label }}
+          </a>
+        }
+      </div>
+    }
+  </div>
+
+  <!-- Botón único para desplegar / ocultar los subbloques -->
+  <div class="toggle-control-container mb-5">
+    <button
+      type="button"
+      class="details-toggle-btn"
+      (click)="toggleDetails()"
+      [attr.aria-expanded]="isExpanded()"
+      aria-label="Alternar visibilidad de subbloques del proyecto">
+      <div class="toggle-btn-content">
+        <div class="toggle-badge-icon">
+          <i class="fa-solid" [class.fa-layer-group]="!isExpanded()" [class.fa-folder-open]="isExpanded()"></i>
+        </div>
+        <div class="toggle-text-group">
+          <span class="toggle-title">
+            {{ isExpanded() ? 'Ocultar detalles y subbloques del proyecto' : 'Ver todos los subbloques del proyecto' }}
+          </span>
+          <span class="toggle-hint">
+            {{ isExpanded()
+                ? 'Haz clic para colapsar los subbloques (Introducción, Objetivo, Visión por Computadora, Proceso y Videos)'
+                : 'Explorar Introducción, Objetivos, Tecnologías de Visión por Computadora, Metodología y Videos' }}
+          </span>
+        </div>
+      </div>
+      <div class="toggle-chevron" [class.open]="isExpanded()">
+        <i class="fa-solid fa-chevron-down"></i>
+      </div>
+    </button>
+  </div>
+
+  <!-- Contenedor desplegable de subbloques -->
+  @if (isExpanded()) {
+    <div class="subblocks-collapsible-wrapper">
+      <!-- Grid de subbloques: Introducción y Objetivo -->
+      <div class="row g-4 mb-4">
+        <!-- Subbloque 1: Introducción -->
+        <div class="col-lg-6 col-12">
+          <article class="subblock-card h-100">
+            <div class="subblock-header">
+              <div class="subblock-icon">
+                <i class="fa-solid fa-book-open"></i>
+              </div>
+              <div>
+                <span class="subblock-number">Subbloque 01</span>
+                <h3 class="subblock-title">Introducción</h3>
+              </div>
+            </div>
+            <div class="subblock-content intro-text">
+              @for (parrafo of thesis.introduction; track parrafo) {
+                <p>{{ parrafo }}</p>
+              }
+            </div>
+          </article>
+        </div>
+
+        <!-- Subbloque 2: Objetivo -->
+        <div class="col-lg-6 col-12">
+          <article class="subblock-card h-100">
+            <div class="subblock-header">
+              <div class="subblock-icon">
+                <i class="fa-solid fa-bullseye"></i>
+              </div>
+              <div>
+                <span class="subblock-number">Subbloque 02</span>
+                <h3 class="subblock-title">Objetivo</h3>
+              </div>
+            </div>
+            <div class="subblock-content">
+              <div class="objective-main">
+                <p>{{ thesis.objectives.main }}</p>
+              </div>
+              @if (thesis.objectives.specifics && thesis.objectives.specifics.length > 0) {
+                <div class="objective-specifics">
+                  <span class="specifics-title">Metas clave del proyecto:</span>
+                  <ul class="specifics-list">
+                    @for (spec of thesis.objectives.specifics; track spec) {
+                      <li>
+                        <i class="fa-solid fa-circle-check"></i>
+                        <span>{{ spec }}</span>
+                      </li>
+                    }
+                  </ul>
+                </div>
+              }
+            </div>
+          </article>
+        </div>
+      </div>
+
+      <!-- Subbloque 3: Tecnologías de Visión por Computadora -->
+      <article class="subblock-card mb-4">
+        <div class="subblock-header">
+          <div class="subblock-icon cv-icon">
+            <i class="fa-solid fa-eye"></i>
+          </div>
+          <div>
+            <span class="subblock-number">Subbloque 03</span>
+            <h3 class="subblock-title">Tecnologías de Visión por Computadora</h3>
+          </div>
+        </div>
+        <p class="subblock-subtext mb-4">
+          Herramientas, algoritmos y librerías especializadas aplicadas para el procesamiento de imágenes, localización espacial y visión artificial del proyecto:
+        </p>
+        <div class="subblock-content">
+          <div class="tech-grid">
+            @for (tech of thesis.cvTechnologies; track tech.name) {
+              <div class="tech-card">
+                @if (tech.icon) {
+                  <div class="tech-icon-box">
+                    <i [class]="tech.icon"></i>
+                  </div>
+                }
+                <div class="tech-details">
+                  <span class="tech-name">{{ tech.name }}</span>
+                  @if (tech.category) {
+                    <span class="tech-badge">{{ tech.category }}</span>
+                  }
+                </div>
+              </div>
+            }
+          </div>
+        </div>
+      </article>
+
+      <!-- Subbloque 4: Proceso -->
+      <article class="subblock-card mb-5">
+        <div class="subblock-header">
+          <div class="subblock-icon">
+            <i class="fa-solid fa-diagram-project"></i>
+          </div>
+          <div>
+            <span class="subblock-number">Subbloque 04</span>
+            <h3 class="subblock-title">Proceso de Desarrollo</h3>
+          </div>
+        </div>
+        <div class="subblock-content">
+          <div class="process-grid">
+            @for (step of thesis.process; track step.title) {
+              <div class="process-card">
+                <div class="process-card-top">
+                  <span class="process-step-num">{{ step.stepNumber }}</span>
+                  <span class="process-dot"></span>
+                </div>
+                <h4 class="process-card-title">{{ step.title }}</h4>
+                <p class="process-card-desc">{{ step.description }}</p>
+              </div>
+            }
+          </div>
+        </div>
+      </article>
+
+      <!-- Subbloque 5: Carrusel de 2 Videos -->
+      <div class="videos-section">
+        <div class="video-showcase-header">
+          <div class="section-tag">
+            <i class="fa-solid fa-film"></i>
+            <span>DEMOSTRACIÓN EN VIDEO</span>
+          </div>
+          <h3 class="video-heading">Demostración Multimedia</h3>
+          <p class="video-subheading">
+            Visualiza el funcionamiento, arquitectura y pruebas del proyecto en este carrusel interactivo.
+          </p>
+        </div>
+
+        <!-- Swiper de videos -->
+        <div class="swiper video-swiper" #videoSwiper>
+          <div class="swiper-wrapper">
+            @for (video of thesis.videos; track video.id) {
+              <div class="swiper-slide">
+                <div class="video-card">
+                  <div class="video-card-header">
+                    <div>
+                      <span class="video-badge">
+                        <i class="fa-solid" [class.fa-image]="isImage(video)" [class.fa-play]="!isImage(video)" class="me-1"></i>
+                        {{ video.subtitle || (isImage(video) ? 'Fotografía' : 'Demostración') }}
+                      </span>
+                      <h4 class="video-title">{{ video.title }}</h4>
+                    </div>
+                    <div class="video-camera-icon">
+                      <i class="fa-solid" [class.fa-image]="isImage(video)" [class.fa-video]="!isImage(video)"></i>
+                    </div>
+                  </div>
+
+                  @if (video.description) {
+                    <p class="video-description">{{ video.description }}</p>
+                  }
+
+                  <!-- Contenedor Multimedia (Imagen, YouTube o Video HTML5) -->
+                  @if (isImage(video)) {
+                    <div class="media-image-container">
+                      <img [src]="getImageUrl(video)" [alt]="video.title" loading="lazy">
+                    </div>
+                  } @else {
+                    <div class="video-player-container">
+                      @if (isYouTube(video)) {
+                        <iframe
+                          [src]="getYouTubeEmbedUrl(video)"
+                          [title]="video.title"
+                          loading="lazy"
+                          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                          referrerpolicy="strict-origin-when-cross-origin"
+                          allowfullscreen>
+                        </iframe>
+                      } @else {
+                        <video
+                          controls
+                          preload="metadata"
+                          playsinline
+                          [poster]="video.poster || ''">
+                          <source [src]="video.src" [type]="video.type || 'video/mp4'">
+                          Tu navegador no soporta la etiqueta de video HTML5.
+                        </video>
+                      }
+                    </div>
+                  }
+
+                </div>
+              </div>
+            }
+          </div>
+
+          <!-- Controles de navegación y paginación -->
+          <div class="video-controls-bar">
+            <div class="swiper-pagination video-pagination"></div>
+            <div class="video-nav-arrows">
+              <div class="swiper-button-prev video-btn-arrow"></div>
+              <div class="swiper-button-next video-btn-arrow"></div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  }
+</section>

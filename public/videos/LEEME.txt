@@ -1,0 +1,7 @@
+# Videos del Proyecto de Titulación
+
+Coloca aquí tus 2 archivos de video en formato MP4 o WebM:
+1. `titulacion-demo-1.mp4`
+2. `titulacion-demo-2.mp4`
+
+También puedes cambiar los nombres o usar enlaces externos directamente en el archivo `src/app/data/portfolio.data.ts` dentro de `THESIS_PROJECT.videos`.
